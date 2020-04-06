@@ -1,0 +1,3 @@
+<?php
+  OwnLog::setLogLevel("Error");
+?>
