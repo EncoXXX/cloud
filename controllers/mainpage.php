@@ -1,6 +1,5 @@
 <?php
   $data = array();
-  
-  View::$data = $data;
 
+  View::$data = $data;
 ?>
