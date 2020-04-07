@@ -33,3 +33,5 @@
   CSS::add("~test2.css");
   $data = View::$data;
 ?>
+
+<h1 align="center">Hello <?=$data?>!</h1>
