@@ -1,3 +1,1 @@
-<?php
-  echo "1";
-?>
+<div class="f1">1</div>
