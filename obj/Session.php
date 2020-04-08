@@ -9,7 +9,7 @@
       $session_key = $_COOKIE["session_key"];
       $link = DB::getLink();
       $query = "SELECT `id` FROM `sessions` WHERE `key`='$session_key'";
-      $answer = mysqli_query($link, $answer);
+      $answer = mysqli_query($link, $query);
       if(mysqli_fetch_assoc($answer) == null){
         setcookie("session_key","",time()-3600);
         return false;
@@ -60,8 +60,8 @@
 
       $query = "INSERT INTO `sessions` (`user_id`,`key`,`ip`,`time`) VALUES ('$id','$key','$ip',$time)";
       $answer = mysqli_query($link,$query);
-      setcookie("session_key",$key);
-      header("Location: $_SERVER[REQUEST_URI]");
+      setcookie("session_key",$key,time()+606024*30,"/");
+      // header("Location: $_SERVER[REQUEST_URI]");
       return $key;
     }
 

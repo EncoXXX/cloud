@@ -27,6 +27,9 @@
 
   include("obj/Router.php");
 
+  //Перенаправляє всі запити якщо користувач не ввійшов
+  include("require_login.php");
+
   ob_start();
   Router::makeRoute();
   View::setHtml(ob_get_clean());

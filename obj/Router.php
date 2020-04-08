@@ -9,6 +9,22 @@
       }
       $url_parts = URL::getUrlParts();
       $view = $url_parts[0];
+      //Перевірка чи це ajax
+      $path = "";
+      if($view == "ajax"){
+        foreach($url_parts as $part){
+          $path.="$part/";
+        }
+        $path = substr($path,0,strlen($path)-1);
+        if(file_exists($path)){
+          if(is_file($path)){
+            include($path);
+            exit();
+          }
+        }
+        //Зануляємо щоб видало 404
+        $view = "";
+      }
       $path = $_SERVER["DOCUMENT_ROOT"]."/views/$view/index.php";
       if(file_exists($path)){
         if(is_file($path)){
