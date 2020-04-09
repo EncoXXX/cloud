@@ -1,18 +1,19 @@
 <?php
-  $name = trim($_POST["name"]);
-  $surname = trim($_POST["surname"]);
-  $patronymic = trim($_POST["patronymic"]);
-  $email = trim($_POST["email"]);
-  $password = $_POST["password"];
+  @$name = trim($_POST["name"]);
+  @$surname = trim($_POST["surname"]);
+  @$patronymic = trim($_POST["patronymic"]);
+  @$email = trim($_POST["email"]);
+  @$password = $_POST["password"];
 
-  $password = password_hash($password,PASSWORD_DEFAULT);
 
-  if($password == false){
-    return"false";
-  }
   if(strlen($password)<8){
     echo "error1";//Короткий пароль
     exit();
+  }
+
+  $password = password_hash($password,PASSWORD_DEFAULT);
+  if($password == false){
+    return"false";
   }
 
   if($name == ""){

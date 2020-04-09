@@ -27,8 +27,11 @@
 
   include("obj/Router.php");
 
+  //Перевіряє чи це ajax
+  include("redirects/ajax.php");
+
   //Перенаправляє всі запити якщо користувач не ввійшов
-  include("require_login.php");
+  include("redirects/require_login.php");
 
   ob_start();
   Router::makeRoute();
