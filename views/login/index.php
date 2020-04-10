@@ -3,8 +3,8 @@
 	<title>Login V14</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	 <?php CSS::add("resource/css/form_css/main.css"); ?>
-	 <?php CSS::add("resource/css/form_css/util.css"); ?>
+	 <?php CSS::add("~/form_css/main.css"); ?>
+	 <?php CSS::add("~/form_css/util.css"); ?>
 </head>
 <body>
 	

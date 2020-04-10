@@ -41,5 +41,4 @@
   CSS::complete();
   include("templates/skeleton.php");
 
-  file_put_contents("site.log",time()."\n",FILE_APPEND);
 ?>
