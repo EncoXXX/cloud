@@ -2,6 +2,7 @@
   class View{
     private static $html = "";
     private static $template_path = "templates/";
+    private static $head = "";
 
     public static $data = array();
 
@@ -14,7 +15,7 @@
 
     public static function getTemplate($template = ""){
       if($template == ""){
-        return "1";
+        return false;
       }
       if($template[0] != "/"){
         $template = "/$template";
@@ -29,12 +30,24 @@
       }
 
       if($is_file == false){
-        return "2)$template";
+        return false;
       }
 
       ob_start();
       include($template);
       return ob_get_clean();
     }
+
+    public static function setHead($head = ""){
+      if($head == ""){
+        return false;
+      }
+      self::$head = $head;
+    }
+
+    public static function getHead(){
+      return self::$head;
+    }
+    
   }
 ?>

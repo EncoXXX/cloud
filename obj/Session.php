@@ -8,12 +8,23 @@
       }
       $session_key = $_COOKIE["session_key"];
       $link = DB::getLink();
-      $query = "SELECT `id` FROM `sessions` WHERE `key`='$session_key'";
+      $query = "SELECT `user_id` FROM `sessions` WHERE `session_key`='$session_key'";
       $answer = mysqli_query($link, $query);
-      if(mysqli_fetch_assoc($answer) == null){
+      @$answer = mysqli_fetch_assoc($answer);
+      if($answer == null){
         setcookie("session_key","",time()-3600);
         return false;
       }
+
+      $query = "SELECT `name` FROM `users` WHERE `id`='$answer[user_id]'";
+      $answer = mysqli_query($link, $query);
+      @$answer = mysqli_fetch_assoc($answer);
+
+      if($answer == null){
+        setcookie("session_key","",time()-3600);
+        return false;
+      }
+
       return $session_key;
     }
 
@@ -23,7 +34,7 @@
         return false;
       }
       $link = DB::getLink();
-      $query = "SELECT `user_id` FROM `sessions` WHERE `key`='$session_key'";
+      $query = "SELECT `user_id` FROM `sessions` WHERE `session_key`='$session_key'";
       $answer = mysqli_query($link, $query);
       $answer = mysqli_fetch_assoc($answer);
       return $answer["user_id"];
@@ -51,14 +62,15 @@
           $key .= $chars[rand(0,10000)%$size];
         }
 
-        $query = "SELECT * FROM `sessions` WHERE `key` = '$key'";
+        $query = "SELECT * FROM `sessions` WHERE `session_key` = '$key'";
         $answer = mysqli_query($link,$query);
         $answer = mysqli_fetch_assoc($answer);
       }
       $ip = $_SERVER["REMOTE_ADDR"];
       $time = time();
+      $user_agent = $_SERVER["HTTP_USER_AGENT"];
 
-      $query = "INSERT INTO `sessions` (`user_id`,`key`,`ip`,`time`) VALUES ('$id','$key','$ip',$time)";
+      $query = "INSERT INTO `sessions` (`user_id`,`session_key`,`ip`,`time`,`user_agent`) VALUES ('$id','$key','$ip',$time,'$user_agent')";
       $answer = mysqli_query($link,$query);
       setcookie("session_key",$key,time()+606024*30,"/");
       // header("Location: $_SERVER[REQUEST_URI]");

@@ -1,5 +1,10 @@
 <?php
   class Router{
+    private static $is_404 = false;
+
+    public static function is_404():bool{
+      return self::$is_404;
+    }
 
     public static function makeRoute():bool{
       $url = URL::getUrl();
@@ -9,7 +14,7 @@
       }
       $url_parts = URL::getUrlParts();
       $view = $url_parts[0];
-      
+
       $path = $_SERVER["DOCUMENT_ROOT"]."/views/$view/index.php";
       if(file_exists($path)){
         if(is_file($path)){
@@ -21,6 +26,7 @@
         }
       }
       $view = "404";
+      self::$is_404 = true;
       $path = $_SERVER["DOCUMENT_ROOT"]."/views/$view/index.php";
       include($path);
       return true;

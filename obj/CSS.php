@@ -40,7 +40,6 @@
 
       self::$min_files[$path] = $min_file;
       self::$css_files[] = $path;
-
       return true;
     }
 

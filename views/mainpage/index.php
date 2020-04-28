@@ -27,11 +27,44 @@
 
   */
   Router::includeController("mainpage.php");
-  JS::add("~test.js");
-  JS::addLib("~test2.js");
-  CSS::add("~test.css");
-  CSS::add("~test2.css");
+
   $data = View::$data;
 ?>
 
-<h1 align="center">Hello <?=$data?>!</h1>
+
+    <title>Головна</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <?php CSS::add("~/mainpage/mainpage.css"); ?>
+
+    <!-- Our Custom CSS -->
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<div class="wrapper">
+    <div id="content">
+        <div class="line"></div>
+            <div class="contaner">
+               <div class="row col-lg-12">
+                 <div class="card col-lg-3 col-xl-3 col-md-4 col-sm-6 element" >
+                    <img class="card-img-top" src="\resource\img\folder.png"  alt="Card image cap">
+                    <!-- <div class="image"></div> -->
+                    <div class="card-body">
+                       <h5 class="card-title">Folder Name</h5>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <?php JS::add("~/mainpage/jquery-3.3.1.slim.min.js"); ?>
+    <?php JS::add("~/mainpage/mainpage.js"); ?>
+</div>
+</body>
+
+

@@ -1,4 +1,5 @@
 <?php
-  $data["url"] = $_SERVER["HTTP_HOST"].URL::getUrl();
+  $data["url"] = URL::getUrl();
+  http_response_code(404);
   View::$data = $data;
 ?>

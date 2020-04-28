@@ -27,6 +27,8 @@
 
   include("obj/Router.php");
 
+  include("obj/Data.php");
+
   //Перевіряє чи це ajax
   include("redirects/ajax.php");
 

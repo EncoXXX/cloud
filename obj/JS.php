@@ -41,7 +41,6 @@
 
       self::$min_files[$path] = $min_file;
       self::$js_files[] = $path;
-
       return true;
     }
 
@@ -78,11 +77,19 @@
 
     public static function complete(){
       foreach(self::$js_files as $file){
+        if(!is_readable($file)){
+          echo "JS::error -> cant read file. Permission denied or file does not exist";
+          continue;
+        }
         $minifier = new MatthiasMullie\Minify\JS($file);
         $path_to_min = self::$min_files[$file];
 
         if(!file_exists($path_to_min)){
           file_put_contents($path_to_min,"");
+        }
+        if(!is_writable($path_to_min)){
+          echo "JS::error -> cant create minfile. Permission denied";
+          continue;
         }
         $minifier -> minify($path_to_min);
       }

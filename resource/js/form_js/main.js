@@ -16,14 +16,6 @@
                 check=false;
             }
         }
-        if($("#pass").val() !== $("#repass").val() && check == true)
-        {
-        //    $("#id_pass").setAttribute('data-validate', 'Паролі не співпадають');
-            showValidate(input[4]);
-            showValidate(input[5]);
-            check=false;
-        }
-
 
         return check;
     });
@@ -36,7 +28,6 @@
     });
 
     function validate (input) {
-
         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
                 return false;
@@ -55,18 +46,12 @@
         $(thisAlert).addClass('alert-validate');
     }
 
-    function showValidatePass(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
-    }
-
     function hideValidate(input) {
         var thisAlert = $(input).parent();
 
         $(thisAlert).removeClass('alert-validate');
     }
-
+    
     /*==================================================================
     [ Show pass ]*/
     var showPass = 0;
@@ -83,8 +68,8 @@
             $(this).find('i').addClass('fa-eye');
             showPass = 0;
         }
-
+        
     });
-
+    
 
 })(jQuery);
