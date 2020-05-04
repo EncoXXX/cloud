@@ -11,7 +11,7 @@
 					<span class="txt1 p-b-11">
 						Email
 					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Поле має бути не пустим">
+					<div class="wrap-input100 validate-input m-b-36" id = "id_email">
 						<input class="input100" type="email" name="email" >
 						<span class="focus-input100"></span>
 					</div>
@@ -20,7 +20,7 @@
 						Пароль
 					</span>
 
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Поле має бути не пустим">
+					<div class="wrap-input100 validate-input m-b-12" id = "id_pass">
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>

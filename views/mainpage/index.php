@@ -35,7 +35,9 @@
     <title>Головна</title>
 
     <!-- Bootstrap CSS CDN -->
-    <?php CSS::add("~/mainpage/mainpage.css"); ?>
+    <?php //CSS::add("~/mainpage/mainpage.css");
+
+    ?>
 
     <!-- Our Custom CSS -->
 
@@ -58,13 +60,11 @@
                        <h5 class="card-title">Folder Name</h5>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
-    <?php JS::add("~/mainpage/jquery-3.3.1.slim.min.js"); ?>
-    <?php JS::add("~/mainpage/mainpage.js"); ?>
+    <?php //JS::add("~/mainpage/jquery-3.3.1.slim.min.js"); ?>
+    <?php //JS::add("~/mainpage/mainpage.js"); ?>
 </div>
 </body>
-
-

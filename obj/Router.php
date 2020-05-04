@@ -57,5 +57,12 @@
       }
       return false;
     }
+
+    public static function set404page(){
+      $view = "404";
+      self::$is_404 = true;
+      $path = $_SERVER["DOCUMENT_ROOT"]."/views/$view/index.php";
+      include($path);
+    }
   }
 ?>

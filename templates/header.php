@@ -14,6 +14,7 @@
   return;
  }
 ?>
+<link href="/resource/css/mainpage/mainpage.css" rel="stylesheet">
         <!-- Sidebar Holder -->
         <nav  id="sidebar">
             <div class="sidebar-header">
@@ -23,18 +24,21 @@
 
             <ul class="list-unstyled components">
                 <!-- <p>Dummy Heading</p> -->
+                <li>
+                  <a href="/">Головна</a>
+                </li>
+                <li>
+                    <a href="/files/">Файли</a>
+                </li>
+                <li>
+                    <a href="#">Some sho to tam</a>
+                </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Some sho to tam</a>
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Some sho to tam</a>
                 </li>
                 <li>
-                    <a href="#">Some sho to tam</a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Some sho to tam</a>
-                </li>
-                <li>
-                    <a href="#">Some sho to tam</a>
-                </li>
-                <li>
-                    <a href="#">Some sho to tam</a>
+                  <a href="#">Some sho to tam</a>
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Some sho to tam</a>
                 </li>
             </ul>
         </nav>
@@ -66,6 +70,9 @@
                 </div>
             </nav>
         </div>
+        <?php JS::add("~/mainpage/jquery-3.3.1.slim.min.js"); ?>
+        <?php JS::add("~/mainpage/mainpage.js"); ?>
+
 
 
 
